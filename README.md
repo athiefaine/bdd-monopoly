@@ -1,27 +1,75 @@
 # Behaviour-Driven Development kata: Monopoly
 
-[Monopoly rules](https://simple.wikipedia.org/wiki/Monopoly_(game))
+[Monopoly rules](https://en.wikibooks.org/wiki/Monopoly/Official_Rules)
 
 ![Classic edition Board](resources/classic_board.jpg)
 
+## Describe the glossary
 
-### Some examples
+## Describe the rules as BDD scenarios
 
-#### Go pass
+* determine players turns
+* player actions on its turn
+  * roll the dice
+  * move number of spaces according to the dice roll
+  * buy unowned property where she lands
+  * pay the rent for the owned property where she lands
+  * pay the tax to the Bank when landing on a Tax space
+  * pick a card when landing in Chance/Community Chest space, and follow instruction
+  * go to Jail when landing on Go to Jail space
+  * trade with other players
+  * buy or improve buildings
+  * mortgage one or more owned properties
+* player actions not on its turn
+  * trade with other players
+  * bid for an auctioned property
+* doubles roll
+  * play once more for 1st and 2nd doubles
+  * go to Jail for 3rd double
+* GO pass rules
+  * twice the amount if landing directly on it
+* property buying
+  * property auction
+* property set ownership
+* building construction
+  * houses
+  * hotels
+* rent calculation
+  * property
+  * property in a set
+  * property with buildings
+  * railroad
+  * utilities
+* mortgage/unmortgage(10% interest)
+* jailed
+* bankruptcy
+
+
+
+## Some examples
+
+### GO pass
 
 ```gherkin
-Scenario: Player Emma passes Go and gets rewarded
+Scenario: Player Emma passes GO and gets rewarded
   Given player Emma owns 400M
-  When player Emma passes Go
+  When player Emma passes GO
   Then player Emma receives 200M
   And player Emma owns 600M
 ```
+
+Are 100% fine with this example?
 <details><summary> Spoiler alert</summary>
-Is this always true? What happens if the Bank has no money?
+<p>
+
+* Is this always true? What happens if the Bank has no more money? if the Bank does not have the right change?
+* Is "passes GO" enough accurate?
+
+</p>
 
 </details>
 
-#### Property set
+### Property set
 
 ```gherkin
 Scenario: Player Patrick buys a property set
