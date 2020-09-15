@@ -54,8 +54,8 @@
 Scenario: Player Emma passes GO and gets rewarded
   Given player Emma owns 400M
   When player Emma passes GO
-  Then player Emma receives 200M
-  And player Emma owns 600M
+  Then player Emma should receive 200M
+  And player Emma should own 600M
 ```
 
 Are 100% fine with this example?
@@ -75,11 +75,11 @@ Are 100% fine with this example?
 Scenario: Player Patrick buys a property set
   Given player Patrick owns 2 properties of the same colour
   When he buys a third property within the same colour
-  Then the properties value is increased
+  Then the properties value should be increased
   And he can buy buildings
 ```
 
-Find some code smells
+Find some description smells
 
 <details><summary> Spoiler alert</summary>
 <p>
@@ -91,5 +91,24 @@ Find some code smells
 * properties value is increased: how much? what was the initial value of the property set? what is the final value?
 * player Patrick can buy buildings: it is a possibility, not a fact
    * => provide an example where the player owns a property set as a pre-requisite and he buys a building
+</p>
+</details>
+
+### Double roll
+
+```gherkin
+Scenario: Player Morris rolls a double
+   Given player Morris rolls a double
+   When player Morris has performed is actions
+   Then player Morris should roll again
+```
+Find some description smells
+
+<details><summary> Spoiler alert</summary>
+<p>
+
+* to roll a double is not an accurate example; that should be: rolls 2 and 2 for instance
+* example description is awkward: the When clause is not really an action but part of the context; the real action should be: When determining next player's turn
+* the count of consecutive double rolls is not taken into account: it should be described in the context
 </p>
 </details>
