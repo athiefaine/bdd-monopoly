@@ -48,6 +48,16 @@
 
 ## Some examples
 
+### Player move
+
+```gherkin
+Scenario: Player Emma moves from Mediterranean Avenue to Oriental Avenue
+   Given player Emma is located at Mediterranean Avenue
+   And the dice roll is 2 and 3
+   When player Emma moves to her next location
+   Then player Emma should be located at Oriental Avenue
+```
+
 ### GO pass
 
 ```gherkin
