@@ -76,7 +76,7 @@ Scenario: Player Patrick buys a property set
   Given player Patrick owns 2 properties of the same colour
   When he buys a third property within the same colour
   Then the properties value should be increased
-  And he can buy buildings
+  And he should be able to buy buildings
 ```
 
 Find some description smells
